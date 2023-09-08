@@ -7,6 +7,8 @@
 
 import UIKit
 class WeatherSearchController: UIViewController {
+    
+    let weatherSearchViewModel = WeatherSearchViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,3 +18,16 @@ class WeatherSearchController: UIViewController {
 
 
 }
+
+extension WeatherSearchController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        
+        guard let text = searchBar.text,
+              text != "" else { return }
+        
+        weatherSearchViewModel.getWeatherDetails(with: text)
+    }
+}
+    

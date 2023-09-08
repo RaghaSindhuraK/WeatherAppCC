@@ -23,7 +23,7 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="M69-AT-4Tp" id="nXn-QG-qrf"/>
+                                    <outlet property="delegate" destination="M69-AT-4Tp" id="dko-3v-Fcl"/>
                                 </connections>
                             </searchBar>
                         </subviews>
