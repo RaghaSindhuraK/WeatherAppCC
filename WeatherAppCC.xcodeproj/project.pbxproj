@@ -20,6 +20,7 @@
 		3E7F86B92AAA971800035ED5 /* WeatherSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86B82AAA971800035ED5 /* WeatherSearchViewModel.swift */; };
 		3E7F86BB2AAA97F600035ED5 /* WeatherSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86BA2AAA97F600035ED5 /* WeatherSearchDataManager.swift */; };
 		3E7F86BD2AAA99EB00035ED5 /* WeatherAppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86BC2AAA99EB00035ED5 /* WeatherAppConstants.swift */; };
+		3E7F86BF2AAAB96D00035ED5 /* WeatherSearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86BE2AAAB96D00035ED5 /* WeatherSearchDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		3E7F86B82AAA971800035ED5 /* WeatherSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchViewModel.swift; sourceTree = "<group>"; };
 		3E7F86BA2AAA97F600035ED5 /* WeatherSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchDataManager.swift; sourceTree = "<group>"; };
 		3E7F86BC2AAA99EB00035ED5 /* WeatherAppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppConstants.swift; sourceTree = "<group>"; };
+		3E7F86BE2AAAB96D00035ED5 /* WeatherSearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		3E7F86B32AAA918E00035ED5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3E7F86BE2AAAB96D00035ED5 /* WeatherSearchDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7F86BF2AAAB96D00035ED5 /* WeatherSearchDataModel.swift in Sources */,
 				3E7F86BB2AAA97F600035ED5 /* WeatherSearchDataManager.swift in Sources */,
 				3E7F86792AAA85E000035ED5 /* AppDelegate.swift in Sources */,
 				3E7F867B2AAA85E000035ED5 /* SceneDelegate.swift in Sources */,

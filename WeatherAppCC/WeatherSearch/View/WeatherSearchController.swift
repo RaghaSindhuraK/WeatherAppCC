@@ -15,19 +15,22 @@ class WeatherSearchController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
-
-
 }
 
 extension WeatherSearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        
         guard let text = searchBar.text,
               text != "" else { return }
         
-        weatherSearchViewModel.getWeatherDetails(with: text)
+        weatherSearchViewModel.getWeatherDetails(with: text) { refreshWeather in
+            guard refreshWeather else {
+                //showAlert()
+                return
+            }
+            //configure()
+        }
     }
 }
     
