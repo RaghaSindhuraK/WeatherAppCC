@@ -545,6 +545,9 @@
 				DEVELOPMENT_TEAM = G9V3DX4R58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherAppCC/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App requests location to fetch weather for current location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "App requests location to fetch weather for current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App requests location to fetch weather for current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -573,6 +576,9 @@
 				DEVELOPMENT_TEAM = G9V3DX4R58;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WeatherAppCC/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "App requests location to fetch weather for current location";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "App requests location to fetch weather for current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App requests location to fetch weather for current location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

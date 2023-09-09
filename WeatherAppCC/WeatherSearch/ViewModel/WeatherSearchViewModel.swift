@@ -22,6 +22,13 @@ class WeatherSearchViewModel: NSObject {
         }
     }
     
+    func getWeatherForCurrentLocation(callback: @escaping (Bool) -> Void) {
+        weatherSearchDataManager.getWeatherForCurrentLocation { [weak self] model in
+            self?.weatherSearchDataModel = model
+            callback(model != nil)
+        }
+    }
+    
     var cityName: String? {
         weatherSearchDataModel?.name
     }

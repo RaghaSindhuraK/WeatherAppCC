@@ -16,16 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Enter city name" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-Wz-X9b">
-                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Asm-bN-NRk"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="M69-AT-4Tp" id="dko-3v-Fcl"/>
-                                </connections>
-                            </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mJp-Ez-Xbg">
                                 <rect key="frame" x="122.66666666666667" y="358.66666666666669" width="147.66666666666663" height="134.66666666666669"/>
                                 <subviews>
@@ -80,15 +70,39 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMO-tO-vg5">
+                                <rect key="frame" x="349" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="PU6-xG-6ox"/>
+                                    <constraint firstAttribute="height" constant="44" id="lGY-Fe-a8R"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="location" catalog="system"/>
+                                <connections>
+                                    <action selector="fetchLocation:" destination="M69-AT-4Tp" eventType="touchUpInside" id="J9s-kb-oF3"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" placeholder="Enter city name" translatesAutoresizingMaskIntoConstraints="NO" id="bWk-Wz-X9b">
+                                <rect key="frame" x="0.0" y="59" width="349" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Asm-bN-NRk"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="M69-AT-4Tp" id="dko-3v-Fcl"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VRu-DG-Lf5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="oMO-tO-vg5" firstAttribute="top" secondItem="VRu-DG-Lf5" secondAttribute="top" id="A7H-MM-Y4c"/>
+                            <constraint firstItem="oMO-tO-vg5" firstAttribute="leading" secondItem="bWk-Wz-X9b" secondAttribute="trailing" id="SyD-pE-jW1"/>
                             <constraint firstItem="mJp-Ez-Xbg" firstAttribute="centerY" secondItem="4ND-1t-Vyr" secondAttribute="centerY" id="Tg5-zL-7GF"/>
                             <constraint firstItem="bWk-Wz-X9b" firstAttribute="leading" secondItem="4ND-1t-Vyr" secondAttribute="leading" id="UHb-8Y-buK"/>
                             <constraint firstItem="mJp-Ez-Xbg" firstAttribute="centerX" secondItem="4ND-1t-Vyr" secondAttribute="centerX" id="cj1-7y-gRi"/>
+                            <constraint firstItem="VRu-DG-Lf5" firstAttribute="trailing" secondItem="oMO-tO-vg5" secondAttribute="trailing" id="gyd-vN-a7C"/>
                             <constraint firstItem="bWk-Wz-X9b" firstAttribute="top" secondItem="VRu-DG-Lf5" secondAttribute="top" id="ht5-kY-3zG"/>
-                            <constraint firstAttribute="trailing" secondItem="bWk-Wz-X9b" secondAttribute="trailing" id="yWG-aV-7dm"/>
                         </constraints>
                     </view>
                     <connections>
@@ -163,6 +177,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location" catalog="system" width="128" height="119"/>
         <image name="sun.min.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

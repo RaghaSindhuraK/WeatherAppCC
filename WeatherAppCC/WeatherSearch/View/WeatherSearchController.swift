@@ -22,6 +22,15 @@ class WeatherSearchController: UIViewController {
     
     @IBOutlet weak var minTemp: UILabel!
     
+    @IBAction func fetchLocation(_ sender: Any) {
+        weatherSearchViewModel.getWeatherForCurrentLocation { [weak self] refreshWeather in
+            guard refreshWeather else {
+                self?.handleError()
+                return
+            }
+            self?.configure()
+        }
+    }
     let weatherSearchViewModel = WeatherSearchViewModel()
 
     override func viewDidLoad() {
@@ -29,7 +38,13 @@ class WeatherSearchController: UIViewController {
         
         weatherView.isHidden = true
         
-        
+        weatherSearchViewModel.getWeatherForCurrentLocation { [weak self] refreshWeather in
+            guard refreshWeather else {
+                self?.handleError()
+                return
+            }
+            self?.configure()
+        }
     }
     
     private func configure() {
