@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct WeatherCoordModel: Decodable {
+struct WeatherCoordModel: Codable {
     var lon: Double
     var lat: Double
 }
 
-struct WeatherCondition: Decodable {
+struct WeatherCondition: Codable {
     var id: Int
     var main: String
     var description: String
     var icon: String
 }
 
-struct WeatherTemperature: Decodable {
+struct WeatherTemperature: Codable {
     var temp: Double
     var feels_like: Double
     var temp_min: Double
@@ -28,17 +28,17 @@ struct WeatherTemperature: Decodable {
     var humidity: Int
 }
 
-struct WeatherWindModel: Decodable {
+struct WeatherWindModel: Codable {
     var speed: Double
     var deg: Int
     var gust: Double
 }
 
-struct WeatherCloudModel: Decodable {
+struct WeatherCloudModel: Codable {
     var all: Int
 }
 
-struct WeatherSystemDetails: Decodable {
+struct WeatherSystemDetails: Codable {
     var type: Int
     var id: Int
     var country: String
@@ -46,7 +46,7 @@ struct WeatherSystemDetails: Decodable {
     var sunset: Int
 }
 
-struct WeatherSearchDataModel: Decodable {
+struct WeatherSearchDataModel: Codable {
     var coord: WeatherCoordModel
     var weather: [WeatherCondition]
     var base: String

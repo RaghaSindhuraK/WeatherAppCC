@@ -8,3 +8,4 @@
 import Foundation
 
 internal let apiKey = "eacb01c4423ef1b0c776458c9fa5f6fa"
+internal let recentSearches = "Recent History"

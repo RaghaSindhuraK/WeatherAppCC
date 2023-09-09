@@ -23,13 +23,7 @@ class WeatherSearchController: UIViewController {
     @IBOutlet weak var minTemp: UILabel!
     
     @IBAction func fetchLocation(_ sender: Any) {
-        weatherSearchViewModel.getWeatherForCurrentLocation { [weak self] refreshWeather in
-            guard refreshWeather else {
-                self?.handleError()
-                return
-            }
-            self?.configure()
-        }
+        getCurrentLocationWeather()
     }
     let weatherSearchViewModel = WeatherSearchViewModel()
 
@@ -38,6 +32,10 @@ class WeatherSearchController: UIViewController {
         
         weatherView.isHidden = true
         
+        getCurrentLocationWeather()
+    }
+    
+    private func getCurrentLocationWeather() {
         weatherSearchViewModel.getWeatherForCurrentLocation { [weak self] refreshWeather in
             guard refreshWeather else {
                 self?.handleError()

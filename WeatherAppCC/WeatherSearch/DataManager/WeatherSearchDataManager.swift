@@ -32,6 +32,8 @@ class WeatherSearchDataManager: NSObject {
                 do {
                     let decoder = JSONDecoder()
                     let weatherData = try decoder.decode(WeatherSearchDataModel.self, from: responseData)
+                    self.storeRecentSearch(model: weatherData)
+                    
                     callback(weatherData)
                 } catch {}
             }
@@ -54,6 +56,8 @@ class WeatherSearchDataManager: NSObject {
                 do {
                     let decoder = JSONDecoder()
                     let weatherData = try decoder.decode(WeatherSearchDataModel.self, from: responseData)
+                    self.storeRecentSearch(model: weatherData)
+                    
                     callback(weatherData)
                 } catch {}
             }
@@ -66,6 +70,28 @@ class WeatherSearchDataManager: NSObject {
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
+    }
+    private func storeRecentSearch(model: WeatherSearchDataModel) {
+        
+        guard let recentHistory = UserDefaults.standard.data(forKey: recentSearches) else {
+            do {
+                let encoder = JSONEncoder()
+                let data = try encoder.encode([model])
+                UserDefaults.standard.setValue(data, forKey: recentSearches)
+            } catch {}
+            
+            return
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            var list = try decoder.decode([WeatherSearchDataModel].self, from: recentHistory)
+            list.append(model)
+            
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(list)
+            UserDefaults.standard.setValue(data, forKey: recentSearches)
+        } catch {}
     }
 }
 
