@@ -9,24 +9,10 @@ import Foundation
 
 class WeatherSearchViewModel: NSObject {
     private var weatherSearchDataModel: WeatherSearchDataModel?
-    private let weatherSearchDataManager = WeatherSearchDataManager()
+    private var weatherSearchDataManager = WeatherSearchDataManager()
     
     private func convertunits(value: Double) -> Int {
         Int(((value - 273.15) * 9/5) + 32)
-    }
-    
-    func getWeatherDetails(with cityName: String, callback: @escaping (Bool) -> Void) {
-        weatherSearchDataManager.getWeatherDetails(with: cityName) { [weak self] model in
-            self?.weatherSearchDataModel = model
-            callback(model != nil)
-        }
-    }
-    
-    func getWeatherForCurrentLocation(callback: @escaping (Bool) -> Void) {
-        weatherSearchDataManager.getWeatherForCurrentLocation { [weak self] model in
-            self?.weatherSearchDataModel = model
-            callback(model != nil)
-        }
     }
     
     var cityName: String? {
@@ -51,5 +37,24 @@ class WeatherSearchViewModel: NSObject {
         let urlString = "https://openweathermap.org/img/wn/%@@2x.png"
         guard let imagename = weatherSearchDataModel?.weather.first?.icon else { return "" }
         return String(format: urlString, imagename)
+    }
+    
+    convenience init(with datamanager: WeatherSearchDataManager) {
+        self.init()
+        weatherSearchDataManager = datamanager
+    }
+    
+    func getWeatherDetails(with cityName: String, callback: @escaping (Bool) -> Void) {
+        weatherSearchDataManager.getWeatherDetails(with: cityName) { [weak self] model in
+            self?.weatherSearchDataModel = model
+            callback(model != nil)
+        }
+    }
+    
+    func getWeatherForCurrentLocation(callback: @escaping (Bool) -> Void) {
+        weatherSearchDataManager.getWeatherForCurrentLocation { [weak self] model in
+            self?.weatherSearchDataModel = model
+            callback(model != nil)
+        }
     }
 }
