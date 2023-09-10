@@ -25,6 +25,8 @@
 		3E7F86C32AAC1DD800035ED5 /* RecentSearchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86C22AAC1DD800035ED5 /* RecentSearchDataManager.swift */; };
 		3E7F86C72AAD506C00035ED5 /* WeatherSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86C62AAD506C00035ED5 /* WeatherSearchViewModelTests.swift */; };
 		3E7F86C92AAD50FF00035ED5 /* WeatherSearchMockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F86C82AAD50FF00035ED5 /* WeatherSearchMockDataManager.swift */; };
+		3E8DA45F2AAD59380047B961 /* RecentSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DA45E2AAD59380047B961 /* RecentSearchViewModelTests.swift */; };
+		3E8DA4612AAD594C0047B961 /* RecentSearchMockDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DA4602AAD594C0047B961 /* RecentSearchMockDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		3E7F86C22AAC1DD800035ED5 /* RecentSearchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchDataManager.swift; sourceTree = "<group>"; };
 		3E7F86C62AAD506C00035ED5 /* WeatherSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchViewModelTests.swift; sourceTree = "<group>"; };
 		3E7F86C82AAD50FF00035ED5 /* WeatherSearchMockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSearchMockDataManager.swift; sourceTree = "<group>"; };
+		3E8DA45E2AAD59380047B961 /* RecentSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchViewModelTests.swift; sourceTree = "<group>"; };
+		3E8DA4602AAD594C0047B961 /* RecentSearchMockDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchMockDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,8 @@
 				3E7F868F2AAA85E700035ED5 /* WeatherAppCCTests.swift */,
 				3E7F86C62AAD506C00035ED5 /* WeatherSearchViewModelTests.swift */,
 				3E7F86C82AAD50FF00035ED5 /* WeatherSearchMockDataManager.swift */,
+				3E8DA45E2AAD59380047B961 /* RecentSearchViewModelTests.swift */,
+				3E8DA4602AAD594C0047B961 /* RecentSearchMockDataManager.swift */,
 			);
 			path = WeatherAppCCTests;
 			sourceTree = "<group>";
@@ -383,7 +389,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E7F86C92AAD50FF00035ED5 /* WeatherSearchMockDataManager.swift in Sources */,
+				3E8DA4612AAD594C0047B961 /* RecentSearchMockDataManager.swift in Sources */,
 				3E7F86902AAA85E700035ED5 /* WeatherAppCCTests.swift in Sources */,
+				3E8DA45F2AAD59380047B961 /* RecentSearchViewModelTests.swift in Sources */,
 				3E7F86C72AAD506C00035ED5 /* WeatherSearchViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

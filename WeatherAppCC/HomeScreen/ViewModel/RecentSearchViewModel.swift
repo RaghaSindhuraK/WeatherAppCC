@@ -9,6 +9,7 @@ import Foundation
 
 class RecentSearchViewModel {
     private var savedHistory = [WeatherSearchDataModel]()
+    private var recentSearchDataManager = RecentSearchDataManager()
     
     private func convertunits(value: Double) -> Int {
         Int(((value - 273.15) * 9/5) + 32)
@@ -16,6 +17,11 @@ class RecentSearchViewModel {
     
     var rows: Int {
         savedHistory.count
+    }
+    
+    convenience init(with datamanager: RecentSearchDataManager) {
+        self.init()
+        recentSearchDataManager = datamanager
     }
     
     func cityName(at index: Int) -> String {
@@ -26,10 +32,8 @@ class RecentSearchViewModel {
         let value = convertunits(value: model.main.temp)
         return "\(model.name) (\(value)) Fahrenheit"
     }
-    
-    
-    
+
     func getHistory() {
-        savedHistory = RecentSearchDataManager().getRecentSearch()
+        savedHistory = recentSearchDataManager.getRecentSearch()
     }
 }
