@@ -8,13 +8,17 @@
 import Foundation
 
 class WeatherSearchViewModel: NSObject {
+    // Model for weather data
     private var weatherSearchDataModel: WeatherSearchDataModel?
+    // Data manager
     private var weatherSearchDataManager = WeatherSearchDataManager()
     
+    // Kelvin to Farhenheit conversion
     private func convertunits(value: Double) -> Int {
         Int(((value - 273.15) * 9/5) + 32)
     }
     
+    // Model object for Weather UI
     var cityName: String? {
         weatherSearchDataModel?.name
     }
@@ -44,6 +48,7 @@ class WeatherSearchViewModel: NSObject {
         weatherSearchDataManager = datamanager
     }
     
+    // Fetch weather data by city name
     func getWeatherDetails(with cityName: String, callback: @escaping (Bool) -> Void) {
         weatherSearchDataManager.getWeatherDetails(with: cityName) { [weak self] model in
             self?.weatherSearchDataModel = model
@@ -51,6 +56,7 @@ class WeatherSearchViewModel: NSObject {
         }
     }
     
+    // Fetch weather data for current location
     func getWeatherForCurrentLocation(callback: @escaping (Bool) -> Void) {
         weatherSearchDataManager.getWeatherForCurrentLocation { [weak self] model in
             self?.weatherSearchDataModel = model

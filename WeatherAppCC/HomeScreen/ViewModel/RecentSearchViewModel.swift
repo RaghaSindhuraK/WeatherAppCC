@@ -8,13 +8,17 @@
 import Foundation
 
 class RecentSearchViewModel {
+    // Model
     private var savedHistory = [WeatherSearchDataModel]()
+    // Data manager
     private var recentSearchDataManager = RecentSearchDataManager()
     
+    // Convert Kelvin to Farhenheit
     private func convertunits(value: Double) -> Int {
         Int(((value - 273.15) * 9/5) + 32)
     }
     
+    // Total number of locations searched
     var rows: Int {
         savedHistory.count
     }
@@ -24,6 +28,7 @@ class RecentSearchViewModel {
         recentSearchDataManager = datamanager
     }
     
+    // Cell label text
     func cityName(at index: Int) -> String {
         guard index < savedHistory.count else { return "" }
         
@@ -33,6 +38,7 @@ class RecentSearchViewModel {
         return "\(model.name) (\(value)) Fahrenheit"
     }
 
+    // Get recent search from user defaults
     func getHistory() {
         savedHistory = recentSearchDataManager.getRecentSearch()
     }

@@ -9,12 +9,13 @@ import UIKit
 
 class HomeScreenController: UIViewController {
     
+    // View model for home screen
     private let recentSearchViewModel = RecentSearchViewModel()
 
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func searchLocation(_ sender: Any) {
-        
+        // Launch Weather Search Controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let weatherSearchController = storyboard.instantiateViewController(withIdentifier: "WeatherSearchController")
         self.navigationController?.pushViewController(weatherSearchController, animated: true)
@@ -23,6 +24,7 @@ class HomeScreenController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // Refresh home screen with recent search
         recentSearchViewModel.getHistory()
         tableView.reloadData()
     }

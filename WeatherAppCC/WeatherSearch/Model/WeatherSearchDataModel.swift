@@ -52,7 +52,6 @@ struct WeatherSearchDataModel: Codable {
     var base: String
     var main: WeatherTemperature
     var visibility: Int
-    //var wind: WeatherWindModel
     var clouds: WeatherCloudModel
     var dt: UInt
     var sys: WeatherSystemDetails

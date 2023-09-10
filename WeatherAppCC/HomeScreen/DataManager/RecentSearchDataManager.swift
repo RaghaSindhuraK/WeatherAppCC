@@ -8,6 +8,7 @@
 import Foundation
 
 class RecentSearchDataManager {
+    // Get recent search from user defaults
     func getRecentSearch() -> [WeatherSearchDataModel] {
     
         guard let recentHistory = UserDefaults.standard.data(forKey: recentSearches) else {

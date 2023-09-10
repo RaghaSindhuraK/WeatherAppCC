@@ -17,6 +17,7 @@ class WeatherSearchDataManager: NSObject {
     
     private var currentWeather: ((WeatherSearchDataModel?) -> Void)?
     
+    // API call to get weather data by city name
     func getWeatherDetails(with cityName: String, callback: @escaping (WeatherSearchDataModel?) -> Void) {
         
         guard let url = URL(string: String(format: searchURL, cityName, apiKey)) else { return }
@@ -41,6 +42,7 @@ class WeatherSearchDataManager: NSObject {
     }
     
     
+    // API call to get weather data for current location
     func getlonlatDetails (with lon: Double, lat: Double, callback: @escaping (WeatherSearchDataModel?) -> Void) {
         
         guard let urlLonLat = URL(string: String(format: lonLatUrl,lat,lon, apiKey)) else { return }
@@ -64,6 +66,7 @@ class WeatherSearchDataManager: NSObject {
         }.resume()
     }
     
+    // Prompt user to allow location services and fetch current location
     func getWeatherForCurrentLocation(callback: @escaping (WeatherSearchDataModel?) -> Void) {
         currentWeather = callback
         
@@ -71,8 +74,10 @@ class WeatherSearchDataManager: NSObject {
         locationManager?.delegate = self
         locationManager?.requestAlwaysAuthorization()
     }
+    
+    // Store recent search in user defaults
+    // Given some more time this method can be improved
     private func storeRecentSearch(model: WeatherSearchDataModel) {
-        
         guard let recentHistory = UserDefaults.standard.data(forKey: recentSearches) else {
             do {
                 let encoder = JSONEncoder()
@@ -95,6 +100,7 @@ class WeatherSearchDataManager: NSObject {
     }
 }
 
+// Location manager delegate
 extension WeatherSearchDataManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation()

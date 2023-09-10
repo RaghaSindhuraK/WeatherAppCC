@@ -8,6 +8,7 @@
 import UIKit
 class WeatherSearchController: UIViewController {
     
+    // IBOutlet for various UI elements
     @IBOutlet weak var weatherView: UIStackView!
     
     @IBOutlet weak var cityName: UILabel!
@@ -45,6 +46,7 @@ class WeatherSearchController: UIViewController {
         }
     }
     
+    // Update weather UI
     private func configure() {
         cityName.text = weatherSearchViewModel.cityName
         temperatureLabel.text = weatherSearchViewModel.temperatureLabel
@@ -56,6 +58,7 @@ class WeatherSearchController: UIViewController {
         imageView.loadImage(with: weatherSearchViewModel.imageUrl)
     }
     
+    // Show error alert
     private func handleError() {
         weatherView.isHidden = true
         
@@ -66,6 +69,7 @@ class WeatherSearchController: UIViewController {
     
 }
 
+// Search bar delegate
 extension WeatherSearchController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -83,6 +87,7 @@ extension WeatherSearchController: UISearchBarDelegate {
     }
 }
 
+// Fetch image using image url
 extension UIImageView {
     func loadImage(with urlString: String) {
         guard let url = URL(string: urlString) else { return }
@@ -90,6 +95,7 @@ extension UIImageView {
         let cache = URLCache.shared
         let request = URLRequest(url: url)
         
+        // Check if image is present in URLCache
         if let data = cache.cachedResponse(for: request)?.data {
             self.image = UIImage(data: data)
         } else {
@@ -104,6 +110,7 @@ extension UIImageView {
                         return
                     }
                     
+                    // Store image in URLCache
                     cache.storeCachedResponse(CachedURLResponse(response: urlresponse, data: responseData), for: request)
                     
                     DispatchQueue.main.async {
@@ -112,9 +119,6 @@ extension UIImageView {
                 }
             }.resume()
         }
-            
-        
-        
     }
 }
     
