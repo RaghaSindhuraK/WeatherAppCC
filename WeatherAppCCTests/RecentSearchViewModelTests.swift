@@ -30,6 +30,7 @@ final class RecentSearchViewModelTests: XCTestCase {
         testViewModel.getHistory()
         
         XCTAssertEqual(testViewModel.rows, 2, "count incorrect")
+        XCTAssertEqual(testViewModel.cityName(at: -1), "", "cityName incorrect")
         XCTAssertEqual(testViewModel.cityName(at: 0), "New York (82) Fahrenheit", "cityName incorrect")
         XCTAssertEqual(testViewModel.cityName(at: 1), "Dallas (82) Fahrenheit", "cityName incorrect")
         XCTAssertEqual(testViewModel.cityName(at: 100), "", "cityName incorrect")

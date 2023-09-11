@@ -30,7 +30,8 @@ class RecentSearchViewModel {
     
     // Cell label text
     func cityName(at index: Int) -> String {
-        guard index < savedHistory.count else { return "" }
+        guard index >= 0,
+              index < savedHistory.count else { return "" }
         
         let model = savedHistory[index]
         
